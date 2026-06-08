@@ -66,6 +66,11 @@ struct PatchConfig {
         bool active;
     } dex_animations;
 
+    struct {
+        bool active;
+        float multiplier;
+    } spawn_distance;
+
     void from_table(toml::parse_result &table) {
         underworld.active = table["underworld"]["active"].value_or(false);
 
@@ -106,6 +111,9 @@ struct PatchConfig {
         fishing_tweaks.keep_chain_after_brilliant = table["fishing_tweaks"]["keep_chain_after_brilliant"].value_or(true);
 
         dex_animations.active = table["dex_animations"]["active"].value_or(false);
+
+        spawn_distance.active = table["spawn_distance"]["active"].value_or(false);
+        spawn_distance.multiplier = table["spawn_distance"]["multiplier"].value_or(1.0f);
 
         initialized = true;
     }

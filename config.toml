@@ -91,3 +91,6 @@ keep_chain_after_brilliant = true
 # Mod allows cycling dex animations
 [dex_animations]
 active = false
+[spawn_distance]
+active = true
+multiplier = 2.0

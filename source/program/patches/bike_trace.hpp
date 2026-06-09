@@ -7,7 +7,7 @@
 #define BIKE_TRACE(NAME, LABEL)                                          \
     HOOK_DEFINE_INLINE(NAME) {                                           \
         static void Callback(exl::hook::nx64::InlineCtx*) {              \
-            exl::log::Logging.Log("[BIKETRACE] " LABEL "\n");            \
+            ::Logging.Log("[BIKETRACE] " LABEL "\n");            \
         }                                                                \
     };
 
@@ -22,7 +22,7 @@ BIKE_TRACE(Trace_ChangeBicycle,         "ChangeBicycle")
 BIKE_TRACE(Trace_ModelHandler,          "ModelHandler_de02d0")
 
 void install_bike_trace_patch() {
-    exl::log::Logging.Log("[BIKETRACE] trace mod loaded\n");
+    ::Logging.Log("[BIKETRACE] trace mod loaded\n");
     Trace_RequestRideBicycle::InstallAtOffset(0x148b960);
     Trace_RideFunc::InstallAtOffset(0xd978a0);
     Trace_GetDressupParts::InstallAtOffset(0x1472580);
